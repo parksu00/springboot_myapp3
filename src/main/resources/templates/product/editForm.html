@@ -7,17 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>상품 수정</title>
 </head>
-
 <body>
-<div class="product-warp">
+<div class="product-wrap">
   <h3>상품 수정</h3>
   <hr>
-  <form method="post" action="">
+  <form method="post" action="" >
     <div>
-      <div><label for="">상품아이디</label><input type="text"></div>
-      <div><label for="">상품평</label><input type="text"></div>
-      <div><label for="">수량</label><input type="text"></div>
-      <div><label for="">가격</label><input type="text"></div>
+      <div><label for="">상품아이디</label><input type="text" readonly></div>
+      <div><label for="">상품명</label><input type="text" ></div>
+      <div><label for="">수량</label><input type="text" ></div>
+      <div><label for="">가격</label><input type="text" ></div>
       <div>
         <button id="cancelBtn">취소</button>
         <button id="editBtn">저장</button>
@@ -26,12 +25,13 @@
   </form>
 </div>
 <script>
-cancelBtn.addEventListener('click',e=>{
-  location.href = '/product/{id}/edit'
-})
-delBtn.addEventListener('click',e=>{
-  location.href = '/product/{id}/del'  
-})
+  editBtn.addEventListener('click',e=>{
+    location.href = '/
+  });
+  delBtn.addEventListener('click',e=>{
+  });
+  listBtn.addEventListener('click',e=>{
+  });
 </script>
 </body>
 </html>
