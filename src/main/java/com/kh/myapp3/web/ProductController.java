@@ -2,9 +2,9 @@ package com.kh.myapp3.web;
 
 import com.kh.myapp3.domain.Product;
 import com.kh.myapp3.domain.svc.ProductSVC;
-import com.kh.myapp3.web.form.EditForm;
-import com.kh.myapp3.web.form.ItemForm;
-import com.kh.myapp3.web.form.SaveForm;
+import com.kh.myapp3.web.form.product.EditForm;
+import com.kh.myapp3.web.form.product.ItemForm;
+import com.kh.myapp3.web.form.product.SaveForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -71,9 +71,9 @@ public class ProductController {
   //수정양식
   @GetMapping("/{pid}/edit")
   public String updateForm(@PathVariable("pid") Long pid, Model model){
-    Product product = new Product();
 
     Product findedProduct = productSVC.findById(pid);
+
     //Product => EditForm 변환
     EditForm editForm = new EditForm();
     editForm.setProductId(findedProduct.getProductId());
@@ -81,7 +81,7 @@ public class ProductController {
     editForm.setQuantity(findedProduct.getQuantity());
     editForm.setPrice(findedProduct.getPrice());
 
-    model.addAttribute("editForm", editForm);
+    model.addAttribute("editForm",editForm);
 
     return "product/editForm";  //상품 수정 view
   }
@@ -95,6 +95,7 @@ public class ProductController {
     product.setPname(editForm.getPname());
     product.setQuantity(editForm.getQuantity());
     product.setPrice(editForm.getPrice());
+
     productSVC.update(pid, product);
     return "redirect:/products/"+pid; //상품 상세 url
   }
